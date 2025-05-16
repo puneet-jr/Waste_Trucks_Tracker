@@ -1,0 +1,21 @@
+{
+  "name": "junkyard-management-backend",
+  "version": "1.0.0",
+  "description": "Backend API for the Junkyard Waste Management System",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+   
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

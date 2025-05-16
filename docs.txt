@@ -1,0 +1,48 @@
+1. Add a Truck Entry:
+
+http://localhost:5000/api/entry
+
+--basic details in the body:
+{
+  "truck_number": "",
+  "total_weight": ,
+  "waste_distribution": [
+    { "type": "Plastic", "weight": 400 },
+    { "type": "Organic", "weight": 600 }
+  ]
+}
+
+
+2. Get Daily Waste Summary:
+
+http://localhost:5000/api/summary/daily?date=YYYY-MM-DD
+
+3. Get Truck Entry History:
+
+http://localhost:5000/api/truck/MH12AB1234/history
+
+4. List All Trucks:
+
+http://localhost:5000/api/trucks
+
+5. List All Waste Types:
+
+http://localhost:5000/api/waste-types
+
+
+6. Delete a Truck Entry:
+http://localhost:5000/api/entry/1
+
+
+7. Update a Truck Entry:
+http://localhost:5000/api/entry/1
+
+-- make changes in the data based on its id
+{
+  "total_weight": 1200,
+  "waste_distribution": [
+    { "type": "Plastic", "weight": 500 },
+    { "type": "Organic", "weight": 700 }
+  ]
+}
+
