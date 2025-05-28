@@ -62,19 +62,94 @@ A robust Node.js backend API for managing truck entries, waste distributions, an
 
 ## 📋 Example: Add Truck Entry
 
-```json
-POST /truck-entry
+1. Add a Truck Entry:
+
+http://localhost:5000/api/entry
+
+--basic details in the body:
 {
-  "truck_number": "MH12AB1234",
-  "total_weight": 1500,
+  "truck_number": "",
+  "total_weight": ,
+  "in_out": "in", // or "out"
   "waste_distribution": [
-    { "type": "Plastic", "weight": 500 },
-    { "type": "Organic", "weight": 1000 }
+    { "type": "Plastic", "weight": 400 },
+    { "type": "Organic", "weight": 600 }
   ]
 }
-```
 
----
+
+2. Get Daily Waste Summary:
+
+http://localhost:5000/api/summary/daily?date=YYYY-MM-DD
+
+3. Get Truck Entry History:
+
+http://localhost:5000/api/truck/MH12AB1234/history
+
+4. List All Trucks:
+
+http://localhost:5000/api/trucks
+
+5. List All Waste Types:
+
+http://localhost:5000/api/waste-types
+
+
+6. Delete a Truck Entry:
+http://localhost:5000/api/entry/1
+
+
+7. Update a Truck Entry:
+http://localhost:5000/api/entry/1
+
+-- make changes in the data based on its id
+{
+  "total_weight": 1200,
+  "in_out": "out", // or "in"
+  "waste_distribution": [
+    { "type": "Plastic", "weight": 500 },
+    { "type": "Organic", "weight": 700 }
+  ]
+}
+
+
+8. Get Last Out Entries for All Trucks:
+http://localhost:5000/api/trucks/last-out
+
+-- Returns the last "out" entry for each truck.
+
+9. Mark the truck as out.
+
+it is a put request.
+
+http://localhost:5000/api/entry/123
+
+10.  Check the Status of a Truck Entry
+
+
+it is a get request.
+
+http://localhost:5000/api/entry/123
+
+11. List All "Out" Truck Entries
+get request.
+
+http://localhost:5000/api/entry?in_out=out
+
+12. Get Total Gross and Waste Weights (all or by date):
+
+GET request.
+
+http://localhost:5000/api/weights/total
+or
+http://localhost:5000/api/weights/total?date=YYYY-MM-DD
+
+Returns:
+{
+  "date": "YYYY-MM-DD" or "all",
+  "total_gross_weight": 12345,
+  "total_waste_weight": 9876
+}
 
 ## 🛡️ Best Practices
 
